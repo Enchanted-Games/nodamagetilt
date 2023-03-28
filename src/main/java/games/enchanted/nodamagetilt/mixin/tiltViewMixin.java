@@ -9,16 +9,20 @@ import net.minecraft.util.math.RotationAxis;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Shadow;
 
 
 @Mixin(GameRenderer.class)
 public class tiltViewMixin {
+    
+    @Shadow
     MinecraftClient client;
     
+
     @Overwrite
     private void tiltViewWhenHurt(MatrixStack matrices, float tickDelta) {
-        if (this.client.getCameraEntity() instanceof LivingEntity) {
-            LivingEntity livingEntity = (LivingEntity)this.client.getCameraEntity();
+        if (client.getCameraEntity() instanceof LivingEntity) {
+            LivingEntity livingEntity = (LivingEntity)client.getCameraEntity();
             float f = (float)livingEntity.hurtTime - tickDelta;
             float g;
             if (livingEntity.isDead()) {
@@ -35,11 +39,10 @@ public class tiltViewMixin {
             // g = livingEntity.getDamageTiltYaw();
             g = 0.0F;
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-g));
-            float h = (float)((double)(-f) * 14.0D * (Double)this.client.options.getDamageTiltStrength().getValue());
+            float h = (float)((double)(-f) * 14.0D * (Double)client.options.getDamageTiltStrength().getValue());
             matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(h));
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(g));
            
         }
-  
      }
 }

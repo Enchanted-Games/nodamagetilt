@@ -1,21 +1,24 @@
 {
     "schemaVersion": 1,
     "id": "nodamagetilt",
-    "version": "1.0",
+    "version": "1.1",
 
     "name": "No Directional Damage Tilt",
-    "description": "Removes the directional damage tilt from the client. Essentially this mod brings MC-26678 back into the game.",
+    "description": "Removes the directional damage tilt from the client.\nEssentially this mod brings MC-26678 back into the game.",
     "authors": ["Enchanted_Games"],
     "contact": {
         "homepage": "https://enchanted.games/",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
+        "sources": "https://github.com/Enchanted-Games/nodamagetilt",
+        "issues": "https://github.com/Enchanted-Games/nodamagetilt/issues"
     },
 
     "license": "CC0-1.0",
     "icon": "assets/nodamagetilt/icon.png",
 
     "environment": "*",
-    "entrypoints": {},
+    "entrypoints": {
+        "client": ["games.enchanted.nodamagetilt.nodamagetilt"]
+    },
     "mixins": ["nodamagetilt.mixins.json"],
 
     "depends": {
