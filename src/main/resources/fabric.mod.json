@@ -5,7 +5,7 @@
 
     "name": "No Directional Damage Tilt",
     "description": "Removes the directional damage tilt from the client.\nEssentially this mod brings MC-26678 back into the game.",
-    "authors": ["Enchanted_Games"],
+    "authors": ["Enchanted_Games", "nelind"],
     "contact": {
         "homepage": "https://enchanted.games/",
         "sources": "https://github.com/Enchanted-Games/nodamagetilt",
@@ -15,19 +15,12 @@
     "license": "CC0-1.0",
     "icon": "assets/nodamagetilt/icon.png",
 
-    "environment": "*",
-    "entrypoints": {
-        "client": ["games.enchanted.nodamagetilt.nodamagetilt"]
-    },
+    "environment": "client",
     "mixins": ["nodamagetilt.mixins.json"],
 
     "depends": {
         "fabricloader": ">=0.14.14",
-        "fabric-api": "*",
-        "minecraft": ">=1.19.4",
+        "minecraft": ">=1.20",
         "java": ">=17"
-    },
-    "suggests": {
-        "another-mod": "*"
     }
 }
